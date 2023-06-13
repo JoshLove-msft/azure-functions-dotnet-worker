@@ -12,6 +12,8 @@ namespace Microsoft.Azure.Functions.Worker
     [InputConverter(typeof(EventDataConverter))]
     [ConverterFallbackBehavior(ConverterFallbackBehavior.Default)]
     [BindingCapabilities(KnownBindingCapabilities.FunctionLevelRetry)]
+    [AllowConverterFallback(true)]
+    [InputConverter(typeof(EventDataConverter))]
     public sealed class EventHubTriggerAttribute : TriggerBindingAttribute, ISupportCardinality
     {
         // Batch by default
