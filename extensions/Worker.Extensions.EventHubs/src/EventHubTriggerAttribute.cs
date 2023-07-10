@@ -12,7 +12,7 @@ namespace Microsoft.Azure.Functions.Worker
     [InputConverter(typeof(EventDataConverter))]
     [ConverterFallbackBehavior(ConverterFallbackBehavior.Default)]
     [BindingCapabilities(KnownBindingCapabilities.FunctionLevelRetry)]
-    [AllowConverterFallback(true)]
+    [ConverterFallbackBehavior(ConverterFallbackBehavior.Default)]
     [InputConverter(typeof(EventDataConverter))]
     public sealed class EventHubTriggerAttribute : TriggerBindingAttribute, ISupportCardinality
     {
