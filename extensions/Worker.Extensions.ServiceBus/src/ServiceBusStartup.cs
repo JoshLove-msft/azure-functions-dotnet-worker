@@ -1,6 +1,7 @@
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Core;
 using Microsoft.Azure.Functions.Worker.Extensions.Rpc;
+using Microsoft.Azure.ServiceBus.Grpc;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
@@ -17,8 +18,5 @@ public sealed class ServiceBusStartup : WorkerExtensionStartup
             IOptions<FunctionsGrpcOptions> options = sp.GetRequiredService<IOptions<FunctionsGrpcOptions>>();
             return new Settlement.SettlementClient(options.Value.CallInvoker);
         });
-
-        // applicationBuilder.Services.AddSingleton<ISettlement, SettlementImpl>();
-        // applicationBuilder.Services.AddTransient<ServiceBusMessageActions>();
     }
 }
